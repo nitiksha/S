@@ -1,0 +1,20 @@
+package pack
+
+object Stringinterpolation {
+
+  def main(args: Array[String]): Unit = {
+
+    val name = "Nitiksha"
+    val yoe = 7
+    println("Candidate " + name +" is " + yoe + " years experienced");
+    //S string interpolation
+    println(s"Candidate $name is $yoe years old experienced")
+    //f string interpolation %s for string %d for integer
+    println(f"Candidate $name%s is $yoe%d years old experience senior")
+    // /\n shift string to next line
+    println(s"Hello \nNitiksha");
+    // /\n raw
+    println(raw"Hello \n Nitiksha");
+  }
+
+}
