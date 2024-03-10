@@ -1,0 +1,20 @@
+package pack
+
+object ifelse {
+  def main(args:Array[String]):Unit= {
+    val x = 20
+    var res = ""
+
+    if (x == 20) {
+      res = "x eq to 20";
+    }
+    else {
+      res = "x not eq to 20";
+    }
+    println(res)
+
+    val res2 = if (x==40) "x equal to 40" else "x not equal to 40";
+    println(res2)
+  }
+
+}
