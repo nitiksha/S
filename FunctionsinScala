@@ -1,0 +1,17 @@
+package pack
+
+object Functinscala {
+
+  def FuncName(x:Int,y:Int):Int = {
+    return x+y;
+  }
+
+  def squr(x:Int):Int = x*x;
+
+  def main(args: Array[String]): Unit = {
+    println(FuncName(4,1))
+    println(squr(4))
+  }
+
+
+}
