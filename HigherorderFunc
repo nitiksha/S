@@ -1,0 +1,11 @@
+package pack
+
+object Higherorderfunction {
+
+  def Math(x:Double,y:Double,z:Double, f:(Double,Double)=>Double) : Double =f(f(x,y),z);
+
+  def main(args: Array[String]): Unit = {
+    val result = Math(23,34,1,_ max _);
+    println(result);
+  }
+}
