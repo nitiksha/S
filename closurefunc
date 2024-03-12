@@ -1,0 +1,13 @@
+package pack
+//Scala -Closures
+/*A closure is a function which uses one or more variables declared outside this function*/
+import java.util.Date
+object Closure {
+
+  val add1 = (x:Int) => x + 10;
+
+  def main(args: Array[String]): Unit = {
+       println(add1(2));
+  }
+
+}
