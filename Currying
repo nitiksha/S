@@ -1,0 +1,23 @@
+package pack
+
+object currying {
+//currying is technique which transformation a function which takes
+// multiple arguments into a function which takes only 1 argument
+
+  def add(x:Int,y:Int)=x+y
+
+  def add2(x:Int)=(y:Int)=>x+y;
+  def add3(x:Int)(y:Int)=x+y;
+
+  def main(args: Array[String]): Unit = {
+println(add(5,7))
+    println(add2(1)(8))
+    //applying partial funct to use currying
+    val sum30 = add2(40);
+    println(sum30(60))
+    println(add3(5)(8))
+    val sumadd3 = add3(100)_;
+    println(sumadd3(400))
+  }
+
+}
