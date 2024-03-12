@@ -1,0 +1,17 @@
+package pack
+//options means some or none
+object Options {
+  val mylist = List(1,2,3);
+  val mymap1 :Map[Int,String] = Map(404->"daddy");
+  val opt : Option[Int] = Some(55);
+  val opt2 : Option[Int] = None;
+  def main(args: Array[String]): Unit = {
+    println(mylist.find(_>6));
+    println(mymap1.get(404));
+    println(mymap1.get(405).getOrElse("no name found"));
+    println(opt.isEmpty);
+    println(opt2.isEmpty);
+
+  }
+
+}
