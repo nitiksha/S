@@ -1,0 +1,22 @@
+package pack
+
+object Maps {
+  val mymap :Map[Int,String] = Map(401->"sonu",402->"monu",403->"lucky");
+  val mymap1 :Map[Int,String] = Map(404->"daddy");
+  def main(args: Array[String]): Unit = {
+    println(mymap(401));
+    println(mymap.keys);
+    println(mymap.values);
+    println(mymap.isEmpty);
+    mymap.keys.foreach { key =>
+      println("key is " + key);
+      println("values is " + mymap(key));
+      println(mymap.contains(401));
+      println(mymap++mymap1);
+      println(mymap.size);
+    }
+
+
+  }
+
+}
