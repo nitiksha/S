@@ -1,0 +1,29 @@
+package pack
+
+object lists {
+  //arrays are mutable list are immutable, cannot change list values
+  //lists are linked list arrays are flat
+  val mylist :List[Int] = List(1,2);
+  val names :List[String] = List("sonu","monu","lucky");
+  def main(args: Array[String]): Unit = {
+ println(mylist);
+    println(0 :: mylist);
+    println(mylist);
+    println(names);
+    println(1::5::6::Nil);
+    println(mylist.head);
+    println(mylist.tail);
+    println(names.tail);
+    println(names.isEmpty);
+    println(mylist.reverse);
+    println(List.fill(5)(2));
+    println(mylist.max);
+    names.foreach(println);
+    var sum :Int =0;
+    mylist.foreach(sum+=_);
+    println(sum);
+    for (name <- names){println(name)};
+    println(names(0));
+  }
+
+}
