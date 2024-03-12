@@ -1,0 +1,33 @@
+package pack
+
+import pack.lists.mylist
+
+//Sets can be mutable as well as immutable
+//duplicates will be removed
+object SetsFunc {
+  val myset :Set[Int] = Set(1,2,7,7,4,4);
+  val names :Set[String] = Set("sonu","monu","lucky");
+  var myset1 :Set[Int] = scala.collection.immutable.Set(20,30,40);
+  val myset2 : scala.collection.mutable.Set[Int] = scala.collection.mutable.Set(1,2,7,7,4,4);
+  val myset3 : scala.collection.immutable.Set[Int] = scala.collection.immutable.Set(20,30,40,1,2,3);
+
+  def main(args: Array[String]): Unit = {
+    println(myset);
+    println(myset1);
+    println(myset2+3);
+    println(myset3);
+    //below command check if 8 is there in set or not
+    println(myset(8))
+    println(myset(1))
+    println(myset++myset3)
+    println(myset.++(myset3))
+    println(myset.&(myset3))
+    println(myset.intersect(myset3))
+    println(myset.max)
+    println(myset.min)
+
+    for(name<-names){println(name)}
+
+  }
+
+}
