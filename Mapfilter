@@ -1,0 +1,21 @@
+package pack
+
+object mapfilter {
+
+  val mylist = List(1,2,3,6,8,9);
+  val mymap :Map[Int,String] = Map(401->"sonu",402->"monu",403->"lucky");
+
+  def main(args: Array[String]): Unit = {
+
+    println(mylist.map(_*2));
+    println(mylist.map(x => x*10));
+    println(mylist.map(x => x+" hi"));
+    println(mymap.mapValues(x => x + " hi"));
+    println("hello".map(_.toUpper));
+    println(List(List(1,2,3),List(8,9),5));
+    println(List(List(1,2,3),List(8,9)).flatten);
+    println(mylist.flatMap(x => List (x,x+1)));
+
+
+  }
+}
