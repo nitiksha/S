@@ -1,0 +1,17 @@
+package pack
+class User(var name: String, var age: Int) {
+  def this() {
+    this("Tom", 32);
+  }
+  def this(name: String){
+    this(name, 32);
+  }
+};
+object auxi {
+  def main(args: Array[String]): Unit = {
+    var use = new User("max",1);
+    var use1 = new User("",1);
+    var use2 = new User("maxii",1);
+  }
+
+}
