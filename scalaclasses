@@ -1,0 +1,20 @@
+package pack
+
+//var getter setter
+//val getter ---
+//default --- ---
+
+class User(var name: String, var age: Int){
+     def printName{println(name)}
+};
+
+object classmaking {
+  def main(args: Array[String]): Unit = {
+    var use = new User("max",1);
+    println(use.name);
+    println(use.age);
+    use.printName;
+
+  }
+
+}
