@@ -1,0 +1,23 @@
+package pack
+
+class Polygon {
+  def area : Double = 0.0;
+}
+
+
+object Polygon {
+  def main(args: Array[String]): Unit = {
+    var poly = new Polygon
+    printArea(poly)
+    var tri = new Triangle(12.3,2.1);
+    printArea(tri)
+    var rect = new Rectangle(22.2,4.0);
+    printArea(rect)
+
+  }
+
+  def printArea(p: Polygon) {
+    println(p.area)
+  }
+
+}
