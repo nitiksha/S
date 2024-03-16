@@ -36,8 +36,8 @@ object obj {
 			val  df = spark
 			          .read
 			          .format("json")
-			          .option("fs.s3a.access.key","AKIAYYWDIYCZ34VCH4M2")
-			          .option("fs.s3a.secret.key","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")
+			          .option("fs.s3a.access.key","")
+			          .option("fs.s3a.secret.key","")
 			          .load("s3a://zeyotics/cashdata")
 			
 			
