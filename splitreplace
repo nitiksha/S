@@ -1,0 +1,52 @@
+package pack
+
+import org.apache.spark.SparkConf
+import org.apache.spark.SparkContext
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{SparkSession, Row}
+import org.apache.spark.sql.types._
+import org.apache.spark.sql.functions._
+import org.apache.spark.sql.expressions._
+
+object obj {
+  def main(args:Array[String]):Unit={
+    
+			println("===Hello====")
+
+			val conf = new SparkConf().setAppName("first").setMaster("local[*]").set("spark.driver.host","localhost")
+			.set("spark.driver.allowMultipleContexts", "true")
+
+			val sc = new SparkContext(conf)
+
+			sc.setLogLevel("ERROR")
+
+			val spark = SparkSession.builder.getOrCreate()
+			
+			  val rdata =  sc.textFile("file:///C:/Users/KB753TL/Downloads/zeyo.txt",1)
+			  rdata.foreach(println)
+
+			  val a = "pretty lady"
+			  println(a)
+    
+			  val lst = List("S->TN,C->YYYY","S->AP,C->JJJ")
+			  val tt1 = lst.flatten(x=>x.split(","))
+			  
+			    println(tt1)
+			  val res1 = tt1.filter(x=>x.contains("S->"))
+			  println(res1)
+			    res1.foreach(println)   
+			    			 val res2 = tt1.filter(x=>x.contains("C->"))
+			    			  	    res2.foreach(println)
+			   val res3 = res1.map(x=>x.replace("S->",""))
+		    println(res3)
+		    			   val res4 = res2.map(x=>x.replace("C->",""))
+		    println(res4)
+		    res4.foreach(println)
+			  
+			
+			   
+			  
+  }
+  
+  
+}
