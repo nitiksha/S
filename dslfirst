@@ -1,0 +1,63 @@
+package pack
+
+import org.apache.spark.SparkConf
+import org.apache.spark.SparkContext
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{SparkSession, Row}
+import org.apache.spark.sql.types._
+import org.apache.spark.sql.functions._
+import org.apache.spark.sql.expressions._
+import org.apache.spark.rdd.RDD
+
+object obj {
+  
+  case class schema(first_name:String,	last_name:String,	company_name:String,		address:String
+)
+  
+  def main(args:Array[String]):Unit={
+    
+			println("===Hello====")
+
+			val conf = new SparkConf().setAppName("first").setMaster("local[*]").set("spark.driver.host","localhost")
+			.set("spark.driver.allowMultipleContexts", "true")
+
+			val sc = new SparkContext(conf)
+
+			sc.setLogLevel("ERROR")
+
+			val spark = SparkSession.builder.getOrCreate()
+			
+	import spark.implicits._
+	
+			  val parquetdf = spark
+			                  .read
+			                  .format("parquet")
+			                  .load("file:///C:/Users/DownloadsFlights.parquet")
+			                  
+			                  parquetdf.show()
+			                  
+			val orcdf = spark
+			                  .read
+			                  .format("orc")
+			                  .load("file:///C:/Users/Downloads/orcfile.orc")
+			                  
+			                  orcdf.show()
+			                  
+			  val jsondf = spark
+			                  .read
+			                  .format("json")
+			                  .load("file:///C:/Users/Downloads/devices.json")
+			                  .filter("lat>80")
+			                  
+			                  jsondf.createOrReplaceTempView("ipl")
+
+			                  val resdf = spark.sql("select * from ipl where lat>100")
+			                  resdf.show()
+
+			                  val dsldf = jsondf.drop("long")   
+			                  dsldf.show()
+			  			  
+  }
+  
+  
+}
