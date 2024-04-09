@@ -1,0 +1,51 @@
+package pack
+
+import org.apache.spark.SparkConf
+import org.apache.spark.SparkContext
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{SparkSession, Row}
+import org.apache.spark.sql.types._
+import org.apache.spark.sql.functions._
+import org.apache.spark.sql.expressions._
+
+object obj {
+  def main(args:Array[String]):Unit={
+    println("jai ganesha")
+    
+      val conf = new SparkConf().setAppName("first").setMaster("local[*]").set("spark.driver.host","localhost").set("spark.driver.allowMultipleContexts", "true")
+
+       val sc = new SparkContext(conf)
+
+       sc.setLogLevel("ERROR")
+
+      val spark = SparkSession.builder.getOrCreate()
+
+      import spark.implicits._
+
+    
+    val df1 = Seq((1,"john",60000,2019),
+                  (1,"john",70000,2020),
+                  (1,"john",80000,2021),
+                   (2,"tom",6000,2019),
+                   (2,"tom",7000,2020),
+                   (2,"tom",7000,2021),
+                   (3,"tomy",6000,2019),
+                   (3,"tomy",7000,2020),
+                   (3,"tomy",0,2021)
+                   ).toDF("emp_id","name","salary","year").orderBy("emp_id")
+    
+        df1.show()
+    
+        val windowspec = Window.partitionBy("emp_id", "name").orderBy("year")
+        
+        val lagdf = df1.withColumn("salary1", lag("salary",1).over(windowspec))
+        
+        lagdf.show()
+        
+        val df2 = lagdf.withColumn("salarydiff", expr("salary-salary1")).select("emp_id","name","salary","year","salarydiff")
+        
+        df2.show()
+    
+    
+  }
+}
